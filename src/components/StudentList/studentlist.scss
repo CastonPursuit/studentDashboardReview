@@ -20,4 +20,10 @@
     &__item {
         margin-top: 5%;
     }
+
+    &__item li {
+        border: 3px solid $primary;
+        padding: 30px;
+        margin-top: 2%;
+    }
 }
