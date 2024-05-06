@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import './studentlist.scss';
 import StudentListItem from './StudentListItem/StudentListItem';
-import StudentData from '../../data/data.json'
 
-const StudentList = () => {
-  const [studentData, setStudentData] = useState(StudentData);
 
+const StudentList = ({data, cohort}) => {
   return (
     <main className="student-list">
-        <h3> All Students </h3>
-        <p> Total Students: <span>250</span></p>
+        <h3> {cohort} </h3>
+        <p> Total Students: <span>{data.length}</span></p>
         <ul className="student-list__item">
-         {studentData.map(
+         {data.map(
           (student, index) => 
           (<li key={index}> 
             <StudentListItem

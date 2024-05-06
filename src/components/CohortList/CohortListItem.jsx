@@ -1,10 +1,23 @@
-import React from 'react'
+
+import React from 'react';
 import './cohortlistitem.scss';
 
-const CohortListItem = ({item}) => {
-  return (
-    <li className='cohort-list__item'>{item}</li>
-  )
-}
+const CohortListItem = ({ item, setStudents, data, setCohort }) => {
+  const handleClick = () => {
+    if (item === "All Students") {
+      setCohort(item);
+      setStudents(data);  
+    } else {
+      const cohortValue = item.split(' ').join('');  
+      const newData = data.filter(info => info.cohort.cohortCode === cohortValue);
+      setCohort(item);
+      setStudents(newData);
+    }
+  };
 
-export default CohortListItem
+  return (
+    <li onClick={handleClick} className='cohort-list__item'>{item}</li>
+  );
+};
+
+export default CohortListItem;
